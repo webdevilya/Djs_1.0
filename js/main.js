@@ -24,7 +24,8 @@ window.addEventListener('DOMContentLoaded', function() {
 			overlay = document.querySelector('.overlay'),
 			main_cards = document.getElementsByClassName('main-cards')[0],
 			progress_bars = document.getElementsByClassName('progress-bar'),
-			main_cards_items = document.getElementsByClassName('main-cards-item'),			
+			main_cards_items = document.getElementsByClassName('main-cards-item'),
+			result_counts = document.getElementsByClassName('result-count'),			
 			main_cards_item = document.createElement('div'),
 			candidate_block = document.createElement('div'),
 			photo = document.createElement('div'),
@@ -274,6 +275,11 @@ window.addEventListener('DOMContentLoaded', function() {
 		custom.style.cssText = 'display: none;';
 		sexDiv.textContent = male.value;
 		viewsDiv.textContent = select.value;
+		for (i = 0; i < result_counts.length; i++) {
+			main_cards_items[i].classList.remove('main-cards-item-active');
+			result_counts[i].textContent = '0%'; 
+			progress_bars[i].style.height = '0%';
+		}
 	});
 
 	function resetCard () {
@@ -297,8 +303,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	votingBtn.addEventListener('click', () => {
 		
-		let result_counts = document.getElementsByClassName('result-count'),
-				b = 100,		 								
+		let b = 100,		 								
 		 		a = randomInteger(1, result_counts.length);	 		
 		 		
 

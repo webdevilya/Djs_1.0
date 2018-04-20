@@ -13,6 +13,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			readyBtn = document.getElementById('ready'),
 			resetBtn = document.getElementById('reset'),
 			votingBtn = document.getElementById('voting'),
+			crimeBtn = document.getElementById('crime'),
 			textSex = document.createTextNode('Пол:'),
 			textViews = document.createTextNode('Полит. взгляды:'),
 			textBio = document.createTextNode('Биография'),	
@@ -215,6 +216,32 @@ window.addEventListener('DOMContentLoaded', function() {
 		sliderHair();
 		sliderClothes();
 
+	function voting(n) {
+		let b = n,		 								
+		 		a = randomInteger(1, result_counts.length);	
+		 a = a - 1;
+		 progress_bars[0].classList.remove('progress-bar-1');	
+		 progress_bars[1].classList.remove('progress-bar-2');		
+  	 for (let i = 0; i < result_counts.length; i++) {
+  	 	main_cards_items[i].classList.remove('main-cards-item-active');
+  	 	 if ((i+1) == result_counts.length) {
+  	 	 	result_counts[a].textContent = b + '%';
+  	 	 	progress_bars[a].style.height = b + '%';
+  	 	 	win[a] = b;	  	 	 	
+  	 	 } else {
+  	 	 	let z = randomInteger(0, b);
+  	 	 	result_counts[a].textContent = z+ '%';
+  	 	 	progress_bars[a].style.height = z + '%'; 
+  	 	 	win[a] = z;	
+  	 	 	b = b - z;
+  	 	 	a++;
+	  	 	  if ((a + 1) > result_counts.length){
+	  	 	  	a = 0;
+	  	 	  }  	 	   	  	  	 	  	
+	  	 	}
+
+  	 }
+	}
 
 	function createCard () {
 			
@@ -257,9 +284,10 @@ window.addEventListener('DOMContentLoaded', function() {
 					main_cards_item.appendChild(bioDiv);
 					bioDiv.classList.add('bio');
 	}
-  function winCalc() {
+  function winCalc(n) {
   	 	let a = 0,
   	 			b = 0;
+  	 			win[2] = win[2] + n;
   	 	for (let i = 0; i < win.length; i++){
   	 		if (a < win[i]) {
   	 			a = win[i];
@@ -295,6 +323,12 @@ window.addEventListener('DOMContentLoaded', function() {
 	    return rand;
   }
 
+  function crimeVoting(n) {
+
+  	result_counts[2].textContent = (win[2] + n) + '%';
+  	progress_bars[2].style.height = (win[2] + n) + '%';
+  }
+
 	resetBtn.addEventListener('click', () => {	
 		resetCard();
 		main.style.cssText = 'display: none;';
@@ -303,35 +337,16 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	votingBtn.addEventListener('click', () => {
 		
-		let b = 100,		 								
-		 		a = randomInteger(1, result_counts.length);	 		
-		 		
-
-		 		a = a - 1;
-		 progress_bars[0].classList.remove('progress-bar-1');	
-		 progress_bars[1].classList.remove('progress-bar-2');		
-  	 for (let i = 0; i < result_counts.length; i++) {
-  	 	main_cards_items[i].classList.remove('main-cards-item-active');
-  	 	 if ((i+1) == result_counts.length) {
-  	 	 	result_counts[a].textContent = b + '%';
-  	 	 	progress_bars[a].style.height = b + '%';
-  	 	 	win[a] = b;	  	 	 	
-  	 	 } else {
-  	 	 	let z = randomInteger(0, b);
-  	 	 	result_counts[a].textContent = z+ '%';
-  	 	 	progress_bars[a].style.height = z + '%'; 
-  	 	 	win[a] = z;	
-  	 	 	b = b - z;
-  	 	 	a++;
-	  	 	  if ((a + 1) > result_counts.length){
-	  	 	  	a = 0;
-	  	 	  }  	 	   	  	  	 	  	
-	  	 	}
-
-  	 	}
-  	winCalc();  	
+		voting(100);
+  	winCalc(0);  	
 	}); 
 
+
+	crimeBtn.addEventListener('click', () => {
+		voting(75);
+		crimeVoting(25);
+		winCalc(25);
+	});
 	
 
 

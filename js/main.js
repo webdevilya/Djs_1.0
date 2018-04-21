@@ -128,7 +128,7 @@ window.addEventListener('DOMContentLoaded', function() {
 					slides[i].style.display = 'none';	
 				}	
 				slides[sliderIndex - 1].style.display = 'block';
-				skin.style.cssText = 'background: url(../img/skin/skin-' + (sliderIndex + nSkin) + '.png) center no-repeat; background-size: cover';	
+				skin.style.cssText = 'position: absolute; margin-top: 30px; left: 50%; transform: translate(-50%); width: 180px; height: 450px; position: absolute; margin-top: 30px; left: 50%; transform: translate(-50%); width: 180px; height: 450px; background: url(../img/skin/skin-' + (sliderIndex + nSkin) + '.png) center no-repeat; background-size: cover';	
 				person_skin.style.cssText = 'background: url(../img/skin/skin-' + (sliderIndex + nSkin) +'.png) center no-repeat; background-size: cover;';			
 			}
 			function plusSlides (n) {
@@ -202,7 +202,7 @@ window.addEventListener('DOMContentLoaded', function() {
 					slides[i].style.display = 'none';	
 				}	
 				slides[sliderIndex - 1 + nSkin].style.display = 'block';
-				clothes.style.cssText = 'background: url(../img/clothes/construct/clothes-' + (sliderIndex + nSkin) + '.png) center no-repeat; background-size: cover';	
+				clothes.style.cssText = 'position: absolute; margin-top: 30px; left: 50%; transform: translate(-50%); width: 180px; height: 450px; background: url(../img/clothes/construct/clothes-' + (sliderIndex + nSkin) + '.png) center no-repeat; background-size: cover';	
 				person_clothes.style.cssText = 'background: url(../img/clothes/construct/clothes-' + (sliderIndex + nSkin) +'.png) center no-repeat; background-size: cover;';
 						
 			}		

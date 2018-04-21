@@ -223,7 +223,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		sliderClothes();
 
 	function voting(n) {
-		let b = n,		 								
+		let b = (n - result_counts.length),		 								
 		 		a = randomInteger(1, result_counts.length);	
 		 a = a - 1;
 		 progress_bars[0].classList.remove('progress-bar-1');	
@@ -231,13 +231,13 @@ window.addEventListener('DOMContentLoaded', function() {
   	 for (let i = 0; i < result_counts.length; i++) {
   	 	main_cards_items[i].classList.remove('main-cards-item-active');
   	 	 if ((i+1) == result_counts.length) {
-  	 	 	result_counts[a].textContent = b + '%';
-  	 	 	progress_bars[a].style.height = b + '%';
+  	 	 	result_counts[a].textContent = (b + 1) + '%';
+  	 	 	progress_bars[a].style.height = (b + 1) + '%';
   	 	 	win[a] = b;	  	 	 	
   	 	 } else {
-  	 	 	let z = randomInteger(0, b);
-  	 	 	result_counts[a].textContent = z+ '%';
-  	 	 	progress_bars[a].style.height = z + '%'; 
+  	 	 	let z = randomInteger(1, b);
+  	 	 	result_counts[a].textContent = (z + 1)+ '%';
+  	 	 	progress_bars[a].style.height = (z + 1) + '%'; 
   	 	 	win[a] = z;	
   	 	 	b = b - z;
   	 	 	a++;

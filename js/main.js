@@ -29,7 +29,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			result_counts = document.getElementsByClassName('result-count'),			
 			main_cards_item = document.createElement('div'),
 			candidate_block = document.createElement('div'),
-			photo = document.createElement('div'),
+			person_photo = document.createElement('div'),
 			result = document.createElement('div'),			
  			result_count = document.createElement('div'),
 			progress = document.createElement('div'),
@@ -39,6 +39,10 @@ window.addEventListener('DOMContentLoaded', function() {
 			sexDiv = document.createElement('div'),
 			viewsDiv = document.createElement('div'),
 			bioDiv = document.createElement('div'),
+			person_skin = document.createElement('div'),
+			person_clothes = document.createElement('div'),
+			person_hair = document.createElement('div'),
+			person_shoes = document.createElement('div'),
 			win = [];
 
 
@@ -75,10 +79,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			if (male.checked) {
 				sexDiv.textContent = male.value;
 			}
-			let n = 1;
-			skin.style.cssText = 'position: absolute; margin-top: 30px; left: 50%; transform: translate(-50%); width: 180px; height: 450px; background: url(../img/skin/skin-' + n + '.png) center no-repeat; background-size: cover';
-			hair.style.cssText = 'position: absolute; margin-top: 30px; left: 50%; transform: translate(-50%); width: 180px; height: 450px; background: url(../img/hair/construct/hair-' + n + '.png) center no-repeat; background-size: cover';
-			clothes.style.cssText = 'position: absolute; margin-top: 30px; left: 50%; transform: translate(-50%); width: 180px; height: 450px; background: url(../img/clothes/construct/clothes-' + n + '.png) center no-repeat; background-size: cover';
+			let n = 1;			
 			reset(n);
 			});	
 	
@@ -86,10 +87,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		if (female.checked) {
 				sexDiv.textContent = female.value;
 			}
-			let n = 4;
-			skin.style.cssText = 'position: absolute; margin-top: 30px; left: 50%; transform: translate(-50%); width: 180px; height: 450px; background: url(../img/skin/skin-' + n + '.png) center no-repeat; background-size: cover';
-			hair.style.cssText = 'position: absolute; margin-top: 30px; left: 50%; transform: translate(-50%); width: 180px; height: 450px; background: url(../img/hair/construct/hair-' + n + '.png) center no-repeat; background-size: cover';
-			clothes.style.cssText = 'position: absolute; margin-top: 30px; left: 50%; transform: translate(-50%); width: 180px; height: 450px; background: url(../img/clothes/construct/clothes-' + n + '.png) center no-repeat; background-size: cover';
+			let n = 4;			
 			reset(n);
 			});	
 	
@@ -100,7 +98,11 @@ window.addEventListener('DOMContentLoaded', function() {
 			for (let i = 0; i < skins.length; i++) {
 				skins[i].style.display = 'none';
 			}
-			skins[0].style.display = 'block';			
+			skins[0].style.display = 'block';	
+			skin.style.cssText = 'background: url(../img/skin/skin-' + n + '.png) center no-repeat; background-size: cover';
+			hair.style.cssText = 'background: url(../img/hair/construct/hair-' + n + '.png) center no-repeat; background-size: cover';
+			clothes.style.cssText = 'background: url(../img/clothes/construct/clothes-' + n + '.png) center no-repeat; background-size: cover';
+					
 	}
 
 	function sliderSkin () {
@@ -126,7 +128,8 @@ window.addEventListener('DOMContentLoaded', function() {
 					slides[i].style.display = 'none';	
 				}	
 				slides[sliderIndex - 1].style.display = 'block';
-				skin.style.cssText = 'position: absolute; margin-top: 30px; left: 50%; transform: translate(-50%); width: 180px; height: 450px; background: url(../img/skin/skin-' + (sliderIndex + nSkin) + '.png) center no-repeat; background-size: cover';				
+				skin.style.cssText = 'background: url(../img/skin/skin-' + (sliderIndex + nSkin) + '.png) center no-repeat; background-size: cover';	
+				person_skin.style.cssText = 'background: url(../img/skin/skin-' + (sliderIndex + nSkin) +'.png) center no-repeat; background-size: cover;';			
 			}
 			function plusSlides (n) {
 				showSlides(sliderIndex += n);
@@ -162,7 +165,8 @@ window.addEventListener('DOMContentLoaded', function() {
 					slides[i].style.display = 'none';		
 				}	
 				slides[sliderIndex - 1 + nSkin].style.display = 'block';
-				hair.style.cssText = 'position: absolute; margin-top: 30px; left: 50%; transform: translate(-50%); width: 180px; height: 450px; background: url(../img/hair/construct/hair-' + (sliderIndex + nSkin) + '.png) center no-repeat; background-size: cover';			
+				hair.style.cssText = 'background: url(../img/hair/construct/hair-' + (sliderIndex + nSkin) + '.png) center no-repeat; background-size: cover';	
+				person_hair.style.cssText = 'background: url(../img/hair/construct/hair-' + (sliderIndex + nSkin) +'.png) center no-repeat; background-size: cover;';		
 			}		
 			function plusSlides (n) {
 				showSlides(sliderIndex += n);
@@ -198,7 +202,9 @@ window.addEventListener('DOMContentLoaded', function() {
 					slides[i].style.display = 'none';	
 				}	
 				slides[sliderIndex - 1 + nSkin].style.display = 'block';
-				clothes.style.cssText = 'position: absolute; margin-top: 30px; left: 50%; transform: translate(-50%); width: 180px; height: 450px; background: url(../img/clothes/construct/clothes-' + (sliderIndex + nSkin) + '.png) center no-repeat; background-size: cover';			
+				clothes.style.cssText = 'background: url(../img/clothes/construct/clothes-' + (sliderIndex + nSkin) + '.png) center no-repeat; background-size: cover';	
+				person_clothes.style.cssText = 'background: url(../img/clothes/construct/clothes-' + (sliderIndex + nSkin) +'.png) center no-repeat; background-size: cover;';
+						
 			}		
 			function plusSlides (n) {
 				showSlides(sliderIndex += n);
@@ -251,8 +257,21 @@ window.addEventListener('DOMContentLoaded', function() {
 					main_cards_item.appendChild(candidate_block);
 					candidate_block.classList.add('candidate-block');
 
-						candidate_block.appendChild(photo);
-						photo.classList.add('photo');
+						candidate_block.appendChild(person_photo);
+						person_photo.classList.add('person');
+						
+
+							person_photo.appendChild(person_skin);
+							person_skin.classList.add('person-skin');
+
+							person_photo.appendChild(person_clothes);
+							person_clothes.classList.add('person-clothes');
+
+							person_photo.appendChild(person_hair);
+							person_hair.classList.add('person-hair');
+
+							person_photo.appendChild(person_shoes);
+							person_shoes.classList.add('person-shoes');
 
 						candidate_block.appendChild(result);
 						result.classList.add('result');
@@ -347,8 +366,6 @@ window.addEventListener('DOMContentLoaded', function() {
 		crimeVoting(25);
 		winCalc(25);
 	});
-	
-
 
 });
 

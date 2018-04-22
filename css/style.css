@@ -63,6 +63,7 @@
 }
 
 * {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: 'Montserrat';
   margin: 0;
@@ -75,7 +76,10 @@
 }
 
 .main-cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
 }
 
@@ -90,6 +94,7 @@
   font-size: 11px;
   font-weight: 500;
   line-height: 19px;
+  -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4);
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4);
 }
 
@@ -99,7 +104,11 @@
 
 .main-cards-item .candidate-block {
   height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -112,6 +121,7 @@
 .main-cards-item .candidate-block .person-skin {
   position: absolute;
   left: 50%;
+  -webkit-transform: translate(-50%);
   transform: translate(-50%);
   width: 90px;
   height: 195px;
@@ -121,6 +131,7 @@
 .main-cards-item .candidate-block .person-clothes {
   position: absolute;
   left: 50%;
+  -webkit-transform: translate(-50%);
   transform: translate(-50%);
   width: 90px;
   height: 195px;
@@ -130,6 +141,7 @@
 .main-cards-item .candidate-block .person-hair {
   position: absolute;
   left: 50%;
+  -webkit-transform: translate(-50%);
   transform: translate(-50%);
   width: 90px;
   height: 195px;
@@ -139,6 +151,7 @@
 .main-cards-item .candidate-block .person-shoes {
   position: absolute;
   left: 50%;
+  -webkit-transform: translate(-50%);
   transform: translate(-50%);
   width: 90px;
   height: 195px;
@@ -162,9 +175,16 @@
 }
 
 .main-cards-item .candidate-block .result {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   align-item: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   text-align: center;
   font-size: 18px;
@@ -172,6 +192,8 @@
 }
 
 .main-cards-item .candidate-block .result .progress {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin: 0 auto;
   margin-top: 10px;
@@ -182,10 +204,12 @@
 }
 
 .main-cards-item .candidate-block .result .progress-bar {
+  -ms-flex-item-align: end;
   align-self: flex-end;
   width: 10px;
   border-radius: 10px;
   background-color: #1f8ce2;
+  -webkit-transition: 1.5s;
   transition: 1.5s;
 }
 
@@ -232,7 +256,10 @@
 }
 
 .main-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
 }
 
@@ -243,6 +270,7 @@
   line-height: 60px;
   border-radius: 30px;
   background-color: #f5f5f5;
+  background-image: -webkit-gradient(linear, left top, right top, from(#1f8ce2), to(#2068df));
   background-image: linear-gradient(to right, #1f8ce2 0%, #2068df 100%);
   color: #fff;
   text-transform: uppercase;
@@ -250,10 +278,12 @@
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
+  -webkit-transition: 1s;
   transition: 1s;
 }
 
 .main-buttons .btn:hover {
+  -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
 
@@ -278,6 +308,7 @@
   height: 254px;
   border-radius: 15px;
   background-color: #ffffff;
+  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   text-align: center;
 }
@@ -324,6 +355,7 @@
   text-transform: uppercase;
   cursor: pointer;
   background-color: #f5f5f5;
+  background-image: -webkit-gradient(linear, left top, right top, from(#1f8ce2), to(#2068df));
   background-image: linear-gradient(to right, #1f8ce2 0%, #2068df 100%);
 }
 
@@ -333,6 +365,7 @@
   z-index: 6;
   background-color: rgba(28, 32, 40, 0.06);
   display: none;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
   padding-top: 30px;
 }
@@ -345,6 +378,7 @@
   border-radius: 10px;
   text-align: center;
   background-color: #191e25;
+  background-image: -webkit-gradient(linear, left top, right top, from(#262b35), to(#2f3540));
   background-image: linear-gradient(to right, #262b35 0%, #2f3540 100%);
 }
 
@@ -376,8 +410,14 @@
 }
 
 .custom-info .radio {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   padding-top: 30px;
   padding-bottom: 30px;
@@ -409,6 +449,7 @@
   padding: 0 15px;
   -webkit-appearance: none;
   -ms-appearance: none;
+  -moz-appearance: none !important;
   appearance: none !important;
 }
 
@@ -438,6 +479,7 @@
   position: absolute;
   margin-top: 30px;
   left: 50%;
+  -webkit-transform: translate(-50%);
   transform: translate(-50%);
   width: 180px;
   height: 450px;
@@ -449,6 +491,7 @@
   position: absolute;
   margin-top: 30px;
   left: 50%;
+  -webkit-transform: translate(-50%);
   transform: translate(-50%);
   width: 180px;
   height: 450px;
@@ -460,6 +503,7 @@
   position: absolute;
   margin-top: 30px;
   left: 50%;
+  -webkit-transform: translate(-50%);
   transform: translate(-50%);
   width: 180px;
   height: 450px;
@@ -471,6 +515,7 @@
   position: absolute;
   margin-top: 30px;
   left: 50%;
+  -webkit-transform: translate(-50%);
   transform: translate(-50%);
   width: 180px;
   height: 450px;
@@ -495,6 +540,7 @@
   text-align: center;
   cursor: pointer;
   background-color: #f5f5f5;
+  background-image: -webkit-gradient(linear, left top, right top, from(#1f8ce2), to(#2068df));
   background-image: linear-gradient(to right, #1f8ce2 0%, #2068df 100%);
 }
 
@@ -505,6 +551,7 @@
   border-radius: 10px;
   padding: 60px 20px 0 20px;
   background-color: #191e25;
+  background-image: -webkit-gradient(linear, left top, right top, from(#262b35), to(#2f3540));
   background-image: linear-gradient(to right, #262b35 0%, #2f3540 100%);
 }
 
@@ -523,19 +570,26 @@
   background-color: #1c2028;
   border-radius: 100%;
   cursor: pointer;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
 .custom-style .prev:hover,
 .custom-style .next:hover {
+  -webkit-box-shadow: 0 0 15px #2068df;
   box-shadow: 0 0 15px #2068df;
 }
 
 .custom-style .skin,
 .custom-style .hair,
 .custom-style .clothes {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-bottom: 60px;
 }

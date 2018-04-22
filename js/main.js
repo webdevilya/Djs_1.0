@@ -60,19 +60,35 @@ window.addEventListener('DOMContentLoaded', function() {
 			viewsDiv.textContent = select.value;
 
 	bio.addEventListener('change', () => {
-		bioDiv.textContent = bio.value;
-	});		
+		if (bio.value === '' || bio.value === null) {
+			bio.style.cssText = 'background-color: #B84B5C;';
+		} else{
+			bio.style.cssText = 'background-color: #1C2028;';
+			bioDiv.textContent = bio.value;
+		}
+			});		
 
 	select.addEventListener('change', () => {
 		viewsDiv.textContent = select.value;
 	});		
 
-	age.addEventListener('change', () => {				
-		ageDiv.textContent = age.value;
+	age.addEventListener('change', () => {	
+		let a = parseInt(age.value);
+		if (age.value === '' || age.value === null || a < 35 || a > 50){
+			age.style.cssText = 'background-color: #B84B5C;';
+		} else{
+			age.style.cssText = 'background-color: #1C2028;';
+			ageDiv.textContent = age.value;
+		}			
 	});	
 	
 	name.addEventListener('change', () => {
-		nameDiv.textContent = name.value;
+		if (name.value === '' || name.value === null){
+			name.style.cssText = 'background-color: #B84B5C;';
+		} else{
+			name.style.cssText = 'background-color: #1C2028;';
+			nameDiv.textContent = name.value;
+		}			
 	});		
 
 	male.addEventListener('change', () => {
@@ -159,12 +175,12 @@ window.addEventListener('DOMContentLoaded', function() {
 					sliderIndex = 1;
 				}
 				if (n < 1) {
-					sliderIndex = slides.length;
+					sliderIndex = slides.length - 3;
 				}
 				for (let i = 0; i < slides.length; i++) {
 					slides[i].style.display = 'none';		
 				}	
-				slides[sliderIndex - 1 + nSkin].style.display = 'block';
+				slides[sliderIndex - 1].style.display = 'block';
 				hair.style.cssText = 'background: url(img/hair/construct/hair-' + (sliderIndex + nSkin) + '.png) center no-repeat; background-size: cover';	
 				person_hair.style.cssText = 'background: url(img/hair/construct/hair-' + (sliderIndex + nSkin) +'.png) center no-repeat; background-size: cover;';		
 			}		
@@ -196,7 +212,7 @@ window.addEventListener('DOMContentLoaded', function() {
 					sliderIndex = 1;
 				}
 				if (n < 1) {
-					sliderIndex = slides.length;
+					sliderIndex = slides.length -3;
 				}
 				for (let i = 0; i < slides.length; i++) {
 					slides[i].style.display = 'none';	
@@ -318,15 +334,24 @@ window.addEventListener('DOMContentLoaded', function() {
 	
 	readyBtn.addEventListener('click', () => {
 		createCard();
-		main.style.cssText = 'display: block;';
-		custom.style.cssText = 'display: none;';
-		sexDiv.textContent = male.value;
-		viewsDiv.textContent = select.value;
-		for (i = 0; i < result_counts.length; i++) {
-			main_cards_items[i].classList.remove('main-cards-item-active');
-			result_counts[i].textContent = '0%'; 
-			progress_bars[i].style.height = '0%';
-		}
+		let a = parseInt(age.value);
+		if (bio.value === '' || bio.value === null) {
+			bio.style.cssText = 'background-color: #B84B5C;';
+		} else if (age.value === '' || age.value === null || a < 35 || a > 50){
+			age.style.cssText = 'background-color: #B84B5C;';
+			} else if (name.value === '' || name.value === null){
+				name.style.cssText = 'background-color: #B84B5C;';
+				} else {
+					main.style.cssText = 'display: block;';
+					custom.style.cssText = 'display: none;';
+					sexDiv.textContent = male.value;
+					viewsDiv.textContent = select.value;
+					for (i = 0; i < result_counts.length; i++) {
+						main_cards_items[i].classList.remove('main-cards-item-active');
+						result_counts[i].textContent = '0%'; 
+						progress_bars[i].style.height = '0%';
+					}
+				}
 	});
 
 	function resetCard () {

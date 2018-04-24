@@ -49,7 +49,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			popup_btn.addEventListener('click', () => {
 				overlay.style.cssText = 'display: none;';
-				//main.style.cssText = 'display: none;';
+				main.style.cssText = 'display: none;';
 				custom.style.cssText = 'display: flex;';
 				custom_info.style.cssText = 'display: block;';
 				custom_char.style.cssText = 'display: block;';
@@ -235,7 +235,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			});		
 	}
 
-		createCard();
+	
 		sliderSkin();
 		sliderHair();
 		sliderClothes();

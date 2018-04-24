@@ -49,7 +49,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			popup_btn.addEventListener('click', () => {
 				overlay.style.cssText = 'display: none;';
-				main.style.cssText = 'display: none;';
+				//main.style.cssText = 'display: none;';
 				custom.style.cssText = 'display: flex;';
 				custom_info.style.cssText = 'display: block;';
 				custom_char.style.cssText = 'display: block;';
@@ -118,7 +118,9 @@ window.addEventListener('DOMContentLoaded', function() {
 			skin.style.cssText = 'background: url(img/skin/skin-' + n + '.png) center no-repeat; background-size: cover';
 			hair.style.cssText = 'background: url(img/hair/construct/hair-' + n + '.png) center no-repeat; background-size: cover';
 			clothes.style.cssText = 'background: url(img/clothes/construct/clothes-' + n + '.png) center no-repeat; background-size: cover';
-					
+			person_skin.style.cssText = 'background: url(img/skin/skin-' + n +'.png) center no-repeat; background-size: cover;';
+			person_clothes.style.cssText = 'background: url(img/clothes/construct/clothes-' + n +'.png) center no-repeat; background-size: cover;';
+			person_hair.style.cssText = 'background: url(img/hair/construct/hair-' + n +'.png) center no-repeat; background-size: cover;';		
 	}
 
 	function sliderSkin () {
@@ -180,7 +182,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				for (let i = 0; i < slides.length; i++) {
 					slides[i].style.display = 'none';		
 				}	
-				slides[sliderIndex - 1].style.display = 'block';
+				slides[sliderIndex - 1 + nSkin].style.display = 'block';
 				hair.style.cssText = 'background: url(img/hair/construct/hair-' + (sliderIndex + nSkin) + '.png) center no-repeat; background-size: cover';	
 				person_hair.style.cssText = 'background: url(img/hair/construct/hair-' + (sliderIndex + nSkin) +'.png) center no-repeat; background-size: cover;';		
 			}		
@@ -233,7 +235,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			});		
 	}
 
-
+		createCard();
 		sliderSkin();
 		sliderHair();
 		sliderClothes();

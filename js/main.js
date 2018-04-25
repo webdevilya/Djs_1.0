@@ -111,10 +111,17 @@ window.addEventListener('DOMContentLoaded', function() {
 			skins = document.getElementsByClassName('skin-color'),
 			hairs = document.getElementsByClassName('hair-style'),
 			clothe = document.getElementsByClassName('clothes-style');
-			for (let i = 0; i < skins.length; i++) {
-				skins[i].style.display = 'none';
+			for (let i = 0; i < hairs.length; i++) {				
+				hairs[i].style.display = 'none';
+				clothe[i].style.display = 'none';	
 			}
+			for (let i = 0; i < skins.length; i++) {
+				skins[i].style.display = 'none';				
+			}
+
 			skins[0].style.display = 'block';	
+			hairs[n - 1].style.display = 'block';
+			clothe[n - 1].style.display = 'block';	
 			skin.style.cssText = 'background: url(img/skin/skin-' + n + '.png) center no-repeat; background-size: cover';
 			hair.style.cssText = 'background: url(img/hair/construct/hair-' + n + '.png) center no-repeat; background-size: cover';
 			clothes.style.cssText = 'background: url(img/clothes/construct/clothes-' + n + '.png) center no-repeat; background-size: cover';

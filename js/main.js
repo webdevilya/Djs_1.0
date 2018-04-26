@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			viewsDiv.textContent = select.value;
 
 	bio.addEventListener('change', () => {
-		if (bio.value === '' || bio.value === null) {
+		if (bio.value === '' || bio.value === null || bio.value.length < 50) {
 			bio.style.cssText = 'background-color: #B84B5C;';
 		} else{
 			bio.style.cssText = 'background-color: #1C2028;';
@@ -78,12 +78,13 @@ window.addEventListener('DOMContentLoaded', function() {
 			age.style.cssText = 'background-color: #B84B5C;';
 		} else{
 			age.style.cssText = 'background-color: #1C2028;';
-			ageDiv.textContent = age.value;
+			ageDiv.textContent = age.value + ' лет';
 		}			
 	});	
 	
 	name.addEventListener('change', () => {
-		if (name.value === '' || name.value === null){
+		let b = name.value;
+		if (name.value === '' || name.value === null || typeof(b) === "number"){
 			name.style.cssText = 'background-color: #B84B5C;';
 		} else{
 			name.style.cssText = 'background-color: #1C2028;';
@@ -343,12 +344,13 @@ window.addEventListener('DOMContentLoaded', function() {
 	
 	readyBtn.addEventListener('click', () => {
 		createCard();
+		let b = name.value;
 		let a = parseInt(age.value);
-		if (bio.value === '' || bio.value === null) {
+		if (bio.value === '' || bio.value === null || bio.value.length < 50) {
 			bio.style.cssText = 'background-color: #B84B5C;';
-		} else if (age.value === '' || age.value === null || a < 35 || a > 50){
+		} else if (age.value === '' || age.value === null || a < 35 || a > 50 || isNaN(a)){
 			age.style.cssText = 'background-color: #B84B5C;';
-			} else if (name.value === '' || name.value === null){
+			} else if (name.value === '' || name.value === null &&  Number.isNaN(b)){
 				name.style.cssText = 'background-color: #B84B5C;';
 				} else {
 					main.style.cssText = 'display: block;';

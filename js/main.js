@@ -352,8 +352,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				name.style.cssText = 'background-color: #B84B5C;';
 				} else {
 					main.style.cssText = 'display: block;';
-					custom.style.cssText = 'display: none;';
-					sexDiv.textContent = male.value;
+					custom.style.cssText = 'display: none;';					
 					viewsDiv.textContent = select.value;
 					for (i = 0; i < result_counts.length; i++) {
 						main_cards_items[i].classList.remove('main-cards-item-active');
